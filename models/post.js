@@ -4,10 +4,11 @@ const Schema = mongoose.Schema
 
 const postSchema = new Schema({
   title: { type: String, required: true},
+  creator: { type: Schema.Types.ObjectId, ref: 'Profile'},
   date: Date,
   textarea: { type: String, required: true },
   image: String,
-  creator: { type: Schema.Types.ObjectId, ref: 'Profile'}
+  category: { enum: ["Architecture", "Construction", "Permits"] },
 }, {
   timestamps: true
 })
