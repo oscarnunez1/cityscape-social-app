@@ -1,9 +1,22 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/posts/new.css">
+<link rel="stylesheet" href="/stylesheets/posts/index.css">
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
+  <table id="feed">
+    <tbody>
+      <p><%= JSON.stringify(posts) %></p>
+      <% posts.forEach((post) => { %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.creator %></td>
+        <a href="<%= post.image %>"></a>
+        <td></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>  
 </main>
 
 

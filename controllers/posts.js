@@ -3,7 +3,7 @@ import { Post } from "../models/post.js"
 function newPost(req, res) {
   console.log('Lets make a new post!');
   res.render("posts/new", {
-    title: "Create Post"
+    title: "Create Post",
   })
 }
 
@@ -36,8 +36,23 @@ function index(req, res) {
   })
 }
 
+function show(req, res) {
+  Post.findById(req.params.id)
+  .then(post => {
+    res.render('posts/show', {
+      title: 'Post Details',
+      post: post
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/posts")
+  })
+}
+
 export {
   newPost as new,
   create,
   index,
+  show, 
 }
