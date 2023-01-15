@@ -7,12 +7,22 @@ function newPost(req, res) {
   })
 }
 
-// function create(req, res) {
-//   for (let key in req.body) {
-//     if (req.body[key] === '') delete req.
-//   }
-// }
+function create(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  console.log("create post", req.body)
+  Post.create(req.body)
+  .then(post => {
+    res.redirect("/posts")
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/posts")
+  })
+}
 
 export {
-  newPost as new
+  newPost as new,
+  create,
 }
