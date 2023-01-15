@@ -9,6 +9,8 @@ router.get('/new', isLoggedIn, postsCtrl.new)
 
 router.post('/', isLoggedIn, postsCtrl.create)
 
+router.get('/', isLoggedIn, postsCtrl.index)
+
 export {
   router
 }

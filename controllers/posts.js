@@ -22,7 +22,22 @@ function create(req, res) {
   })
 }
 
+function index(req, res) {
+  Post.find({})
+  .then(posts => {
+    res.render('posts/index', {
+      posts: posts,
+      title: 'Post Feed'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/posts")
+  })
+}
+
 export {
   newPost as new,
   create,
+  index,
 }
