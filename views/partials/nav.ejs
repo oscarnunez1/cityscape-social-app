@@ -4,6 +4,16 @@
 </head>
 <body>
   <nav>
+    <a 
+    href="/posts/new" <%- title === "Add Movie" ? 'class="active"' : "" %>
+    >
+    CREATE POST -
+    </a>
+    <a 
+    href="/posts" <%- title === "Add Movie" ? 'class="active"' : "" %>
+    > 
+    FEED -
+    </a>
     <% if (user) { %>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
@@ -25,17 +35,4 @@
         data-logo_alignment="left"
       ></div>
     <% } %>
-
-    <a 
-    href="/posts/new" <%- title === "Add Movie" ? 'class="active"' : "" %>
-    >
-    CREATE POST
-    </a>
-    <a 
-    href="/posts" <%- title === "Add Movie" ? 'class="active"' : "" %>
-    >
-    FEED
-  
-    </a>
-
   </nav>

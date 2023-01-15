@@ -4,19 +4,18 @@
 
 <main>
   <h1><%= title %></h1>
-  <table id="feed">
-    <tbody>
-      <p><%= JSON.stringify(posts) %></p>
-      <% posts.forEach((post) => { %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.creator %></td>
-        <a href="<%= post.image %>"></a>
-        <td></td>
-      </tr>
+  <body>
+    <% posts.forEach((post) => { %>
+      <div>
+        <article>
+          <h1><%= post.title %> </h1>
+          <h2><%= post.creator %> </h2>
+          <img src="<%= post.image %>">
+          <p><%=  post.textarea %> </p>
+        </article>
+      </div>
       <% }) %>
-    </tbody>
-  </table>  
+  </body>
 </main>
 
 
