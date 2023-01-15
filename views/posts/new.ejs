@@ -5,12 +5,18 @@
 <main>
   <h1><%= title %></h1>
   <form id="new-form" action="/posts" method="POST">
-    <article>
-      <label for="title-input">Title </label>
-      <input type="text" name="title" id="title-input">
-      <label for="textarea-input">Description </label>
-      <input type="text" name="textarea" id="textarea-input">
-    </article>
+    <label for="title-input">Title: </label>
+    <input type="text" name="title" id="title-input">
+    <label for="image-input">Image URL: </label>
+    <input type="text" name="image" id="image-input">
+    <label for="textarea-input">Description: </label>
+    <textarea type="text" name="textarea" rows="5" cols="60" id="textarea-input"></textarea>
+    <label for="category-select">Category: </label>
+    <select name="category" id="category-select">
+      <option value="Architecture">Architecture</option>
+      <option value="Construction">Construction</option>
+      <option value="Permits">Permits</option>
+    </select>
     <button type="submit">Submit</button>
 </main>
 
