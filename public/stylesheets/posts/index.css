@@ -1,3 +1,11 @@
 table {
   font-size: 20px;
 }
+
+body {
+  background-color: white;
+  color: black;
+}
+div {
+  margin: 10px;
+}
