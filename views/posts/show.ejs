@@ -13,6 +13,11 @@
         </a>
       <% } %>
     <div>
+      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">Delete Post</button>
+      </form>
+    </div>
+    <div>
       <img src="<%= post.image %>" width="1450">
     </div>
     <div>

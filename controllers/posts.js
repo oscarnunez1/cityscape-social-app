@@ -76,7 +76,7 @@ function update(req, res) {
         res.redirect(`/posts/${post._id}`)
       })
     } else {
-      throw new Error("User is not authorized")
+      throw new Error('Unauhtorized')
     }
   })
   .catch(err => {
@@ -84,6 +84,25 @@ function update(req, res) {
     res.redirect('/posts')
   })
 }
+
+function deletePost(req, res) {
+  Post.findById(req.params.id)
+  .then(post => {
+    if (post.owner.equals(req.user.profile._id)) {
+      post.delete()
+      .then(() => {
+        res.redirect('/posts')
+      })
+    } else {
+      throw new Error ('Unauthorized')
+    }   
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
+
 
 
 export {
@@ -93,4 +112,5 @@ export {
   show,
   edit,
   update,
+  deletePost as delete,
 }
