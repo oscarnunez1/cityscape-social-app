@@ -24,6 +24,40 @@
       <p><%= post.textarea %></p>
     </div>
   </section>
+
+  <h2>Comments</h2>
+  <form 
+    id="add-comment-form"
+    action="/posts/<%= post._id %>/comments"
+    method="POST"
+  >
+    <label for="comment-input">Comment:</label>
+    <textarea name="content" id="comment-textarea"></textarea>
+    <button type="submit">Add Comment</button>
+  </form>
+  <% if (post.comments.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% post.comments.forEach(function(comment) { %>
+          <tr>
+            <td><%= comment.content %></td>
+            <td>
+              <form action="/posts/<%=post._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+              <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h3>No Comments Yet</h3>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>

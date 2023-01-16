@@ -4,18 +4,19 @@
 </head>
 <body>
   <nav>
+    <i class="fa-solid fa-city"></i>
     <button>
-      <a
-      href="/posts/new" style="text-decoration: none" <%- title === "Add Movie" ? 'class="active"' : "" %>
-      >
-      CREATE POST
+      <a 
+      href="/posts" style="text-decoration: none" <%- title === "Home" ? 'class="active"' : "" %>
+      > 
+      Home
       </a>
     </button>
     <button>
-      <a 
-      href="/posts" style="text-decoration: none" <%- title === "Add Movie" ? 'class="active"' : "" %>
-      > 
-      FEED
+      <a
+      href="/posts/new" style="text-decoration: none" <%- title === "Create Post" ? 'class="active"' : "" %>
+      >
+      Create Post
       </a>
     </button>
     <% if (user) { %>

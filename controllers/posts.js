@@ -6,7 +6,7 @@ function index(req, res) {
   .then(posts => {
     res.render('posts/index', {
       posts: posts,
-      title: 'Post Feed'
+      title: 'Home'
     })
   })
   .catch(err => {
@@ -36,7 +36,6 @@ function create(req, res) {
 
 
 function show(req, res) {
-  console.log("showing the content", req.body)
   Post.findById(req.params.id)
   .then(post => {
     res.render('posts/show', {
@@ -106,7 +105,6 @@ function deletePost(req, res) {
 function createComment(req, res) {
   Post.findById(req.params.id)
   .then(post => {
-    console.log(movie);
     post.comments.push(req.body)
     post.save()
     .then(() => {
