@@ -64,10 +64,33 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  for (const key in req.body) {
+    if(req.body[key] === "") delete req.body[key]
+  }
+  Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(post => {
+    if (post.owner.equals(req.user.profile._id)) {
+      post.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/posts/${post._id}`)
+      })
+    } else {
+      throw new Error("User is not authorized")
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
+
+
 export {
   index,
   newPost as new,
   create,
   show,
   edit,
+  update,
 }
