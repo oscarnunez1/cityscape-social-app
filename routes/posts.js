@@ -5,13 +5,13 @@ import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
 
+router.get('/', isLoggedIn, postsCtrl.index)
+
 router.get('/new', isLoggedIn, postsCtrl.new)
 
 router.post('/', isLoggedIn, postsCtrl.create)
 
-router.get('/', isLoggedIn, postsCtrl.index)
-
-router.get('/:id', postsCtrl.show)
+router.get('/:id', isLoggedIn, postsCtrl.show)
 
 export {
   router

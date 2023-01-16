@@ -1,29 +1,8 @@
 import { Post } from "../models/post.js"
 
-function newPost(req, res) {
-  console.log('Lets make a new post!');
-  res.render("posts/new", {
-    title: "Create Post",
-  })
-}
-
-function create(req, res) {
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key]
-  }
-  console.log("create post", req.body)
-  Post.create(req.body)
-  .then(post => {
-    res.redirect("/posts")
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/posts")
-  })
-}
-
 function index(req, res) {
   Post.find({})
+  .populate("owner")
   .then(posts => {
     res.render('posts/index', {
       posts: posts,
@@ -35,6 +14,26 @@ function index(req, res) {
     res.redirect("/posts")
   })
 }
+
+function newPost(req, res) {;
+  res.render("posts/new", {
+    title: "Create Post",
+  })
+}
+
+function create(req, res) {
+  console.log("CREATING POST", req.body);
+  req.body.owner = req.user.profile._id
+  Post.create(req.body)
+  .then(post => {
+    res.redirect("/posts")
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/posts")
+  })
+}
+
 
 function show(req, res) {
   Post.findById(req.params.id)
@@ -51,8 +50,8 @@ function show(req, res) {
 }
 
 export {
+  index,
   newPost as new,
   create,
-  index,
   show, 
 }

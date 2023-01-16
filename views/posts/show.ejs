@@ -1,4 +1,21 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/posts/show.css">
 <%- include('../partials/nav') %>
 
-<%- include('./partials/footer') %>
+<main>
+  <h1><%= title %> </h1>
+  <section>
+      <div>
+        <article>
+          <h1>
+            <a><%= post.title %></a>
+          </h1>
+          <img src="<%= post.image %>" width="1450">
+          <p><%=  post.textarea %></p>
+        </article>
+      </div>
+  </body>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

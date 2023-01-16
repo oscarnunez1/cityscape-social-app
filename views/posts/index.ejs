@@ -8,10 +8,11 @@
     <% posts.forEach((post) => { %>
       <div>
         <article>
-          <h1><%= post.title %></h1>
-          <h2><%= post.creator %></h2>
+          <h1>
+            <a href="/posts/<%= post._id %>"><%= post.title %></a>
+          </h1>
           <h3><%= post.createdAt.toLocaleDateString() %> </h3>
-          <img src="<%= post.image %>" width="1500">
+          <img src="<%= post.image %>" width="1450">
           <p><%=  post.textarea %></p>
         </article>
       </div>
