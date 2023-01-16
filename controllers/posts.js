@@ -68,7 +68,7 @@ function update(req, res) {
   for (const key in req.body) {
     if(req.body[key] === "") delete req.body[key]
   }
-  Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  Post.findById(req.params.id, req.body, {new: true})
   .then(post => {
     if (post.owner.equals(req.user.profile._id)) {
       post.updateOne(req.body)
