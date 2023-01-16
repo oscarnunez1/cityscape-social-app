@@ -36,6 +36,7 @@ function create(req, res) {
 
 
 function show(req, res) {
+  console.log("showing the content", req.body)
   Post.findById(req.params.id)
   .then(post => {
     res.render('posts/show', {
