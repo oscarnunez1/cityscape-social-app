@@ -11,7 +11,7 @@
           <h1>
             <a href="/posts/<%= post._id %>"><%= post.title %></a>
           </h1>
-          <h3><%= post.createdAt.toLocaleDateString() %> </h3>
+          <h3>Shared by <%= user.profile.name %> on <%= post.createdAt.toLocaleDateString() %></h3>
           <img src="<%= post.image %>" width="1450">
           <p><%=  post.textarea %></p>
         </article>

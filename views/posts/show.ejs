@@ -5,16 +5,19 @@
 <main>
   <h1><%= title %> </h1>
   <section>
-      <div>
-        <article>
-          <h1>
-            <a><%= post.title %></a>
-          </h1>
-          <img src="<%= post.image %>" width="1450">
-          <p><%=  post.textarea %></p>
-        </article>
-      </div>
-  </body>
+    <div>
+      <h1><%= post.title %></h1>
+      <% if (user.profile.equals(user?.profile._id)) { %>
+        <a href="/posts/<%= post._id %>/edit">
+          <button class="btn">Edit Post</button>
+        </a>
+      <% } %>
+    <div>
+      <img src="<%= post.image %>" width="1450">
+    </div>
+    <div>
+      <p><%= post.textarea %></p>
+    </div>
   </section>
 </main>
 

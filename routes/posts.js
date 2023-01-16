@@ -13,6 +13,8 @@ router.post('/', isLoggedIn, postsCtrl.create)
 
 router.get('/:id', isLoggedIn, postsCtrl.show)
 
+router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
+
 export {
   router
 }
