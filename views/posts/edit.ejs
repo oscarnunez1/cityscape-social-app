@@ -1,18 +1,22 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/posts/edit.css">
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit Post 🌮</h1>
+  <h1>Edit Post</h1>
   <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
-    <label>
-      Name: 
-      <input 
-        type="text"
-        name="name" 
-        value="<%= post.name %>" 
-        autocomplete="off"
-      >
-    </label>
+    <label for="title-input">Title: </label>
+    <input type="text" name="title" value="<%= post.title %> " id="title-input">
+    <label for="image-input">Image URL: </label>
+    <input type="text" name="image" value="<%= post.image %> " id="image-input">
+    <label for="textarea-input">Description: </label>
+    <textarea type="text" name="textarea" value="<%= post.textarea %>" id="textarea-input"></textarea>
+    <label for="category-select">Category: </label>
+    <select name="category" value="<%= post.category %>" id="category-select">
+      <option value="Architecture">Architecture</option>
+      <option value="Construction">Construction</option>
+      <option value="Permits">Permits</option>
+    </select>
     <button type="submit">Finish Edit</button>
   </form>
 </section>
