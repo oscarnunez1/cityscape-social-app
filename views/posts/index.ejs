@@ -8,7 +8,7 @@
     <% posts.forEach(post => { %>
       <div>
         <article>
-          <h1>
+          <h1> 
             <a href="/posts/<%= post._id %>"><%= post.title %></a>
           </h1>
           <h3>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %></h3>

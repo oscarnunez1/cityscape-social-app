@@ -68,7 +68,7 @@ function update(req, res) {
   for (const key in req.body) {
     if(req.body[key] === "") delete req.body[key]
   }
-  Post.findById(req.params.id, req.body, {new: true})
+  Post.findById(req.params.id)
   .then(post => {
     if (post.owner.equals(req.user.profile._id)) {
       post.updateOne(req.body)
@@ -76,7 +76,7 @@ function update(req, res) {
         res.redirect(`/posts/${post._id}`)
       })
     } else {
-      throw new Error('Unauhtorized')
+      throw new Error('Unauthorized')
     }
   })
   .catch(err => {
@@ -103,6 +103,26 @@ function deletePost(req, res) {
   })
 }
 
+function createComment(req, res) {
+  Post.findById(req.params.id)
+  .then(post => {
+    console.log(movie);
+    post.comments.push(req.body)
+    post.save()
+    .then(() => {
+      res.redirect(`/posts/${post._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/")
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
+
 
 
 export {
@@ -113,4 +133,5 @@ export {
   edit,
   update,
   deletePost as delete,
+  createComment
 }
