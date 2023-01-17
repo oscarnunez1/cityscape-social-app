@@ -165,7 +165,29 @@ function editComment(req, res) {
   })
 }
 
-
+function updateComment(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    if (post.owner.equals(req.user.profile._id)) {
+      const commentDoc = post.comments.id(req.params.commentId)
+      commentDoc.set(req.body)
+      post.save()
+      .then(() => {
+        res.redirect(`/posts/${post._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/posts')
+      })
+    } else {
+      throw new Error('Unauthorized')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
 
 
 export {
@@ -179,4 +201,5 @@ export {
   addComment,
   deleteComment,
   editComment,
+  updateComment,
 }
