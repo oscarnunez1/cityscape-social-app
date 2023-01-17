@@ -131,7 +131,7 @@ function deleteComment(req, res) {
   .then(post => {
     if (post.owner.equals(req.user.profile._id)) {
       post.comments.remove({_id: req.params.commentId})
-      taco.save()
+      post.save()
       .then(() => {
         res.redirect(`/posts/${post._id}`)
       })
@@ -155,7 +155,7 @@ function editComment(req, res) {
     if (post.owner.equals(req.user.profile._id)) {
       const commentDoc = post.comments.id(req.params.commentId)
       res.render('posts/editComment', {
-        taco, 
+        post, 
         comment: commentDoc,
         title: 'Update Comment'
       })
