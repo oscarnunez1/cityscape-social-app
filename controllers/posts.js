@@ -36,16 +36,19 @@ function create(req, res) {
 
 function show(req, res) {
   Post.findById(req.params.id)
-  .populate("owner")
+  .populate([
+    {path: "owner"},
+    {path: "comments.commenter"}
+  ])
   .then(post => {
     res.render('posts/show', {
-      title: 'Post Details',
-      post: post
+      title: "Post Details",
+      post
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/posts")
+    res.redirect('/posts')
   })
 }
 
@@ -102,7 +105,8 @@ function deletePost(req, res) {
   })
 }
 
-function createComment(req, res) {
+function addComment(req, res) {
+  console.log("ADDING A COMMENT", req.body);
   Post.findById(req.params.id)
   .then(post => {
     req.body.commenter = req.user.profile._id
@@ -145,6 +149,22 @@ function deleteComment(req, res) {
   })
 }
 
+function editComment(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    if (post.owner.equals(req.user.profile._id)) {
+      const commentDoc = post.comments.id(req.params.commentId)
+      res.render('posts/editComment', {
+        taco, 
+        comment: commentDoc,
+        title: 'Update Comment'
+      })
+    } else {
+      throw new Error('Unauthorized')
+    }
+  })
+}
+
 
 
 
@@ -156,6 +176,7 @@ export {
   edit,
   update,
   deletePost as delete,
-  createComment,
+  addComment,
   deleteComment,
+  editComment,
 }
