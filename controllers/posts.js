@@ -22,7 +22,6 @@ function newPost(req, res) {;
 }
 
 function create(req, res) {
-  console.log("CREATING POST", req.body);
   req.body.owner = req.user.profile._id
   Post.create(req.body)
   .then(post => {
@@ -37,6 +36,7 @@ function create(req, res) {
 
 function show(req, res) {
   Post.findById(req.params.id)
+  .populate("owner")
   .then(post => {
     res.render('posts/show', {
       title: 'Post Details',

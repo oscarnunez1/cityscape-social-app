@@ -6,20 +6,19 @@ const router = Router()
 
 
 router.get('/', isLoggedIn, postsCtrl.index)
-
 router.get('/new', isLoggedIn, postsCtrl.new)
+router.get('/:id', isLoggedIn, postsCtrl.show)
+router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
+
 
 router.post('/', isLoggedIn, postsCtrl.create)
+router.post("/:id/comments", isLoggedIn, postsCtrl.createComment)
 
-router.get('/:id', isLoggedIn, postsCtrl.show)
-
-router.get('/:id/edit', isLoggedIn, postsCtrl.edit)
 
 router.put('/:id', isLoggedIn, postsCtrl.update)
 
 router.delete('/:id', isLoggedIn, postsCtrl.delete)
 
-router.post("/:id/comments"), isLoggedIn, postsCtrl.createComment
 
 export {
   router
