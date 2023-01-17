@@ -122,6 +122,30 @@ function createComment(req, res) {
   })
 }
 
+function deleteComment(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    if (post.owner.equals(req.user.profile._id)) {
+      post.comments.remove({_id: req.params.commentId})
+      taco.save()
+      .then(() => {
+        res.redirect(`/posts/${post._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/posts')
+      })
+    } else {
+      throw new Error('Unauthorized')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })
+}
+
+
 
 
 export {
@@ -132,5 +156,6 @@ export {
   edit,
   update,
   deletePost as delete,
-  createComment
+  createComment,
+  deleteComment,
 }

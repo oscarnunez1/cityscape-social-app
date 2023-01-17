@@ -15,7 +15,7 @@ const postSchema = new Schema({
   excerpt: String,
   textarea: { type: String, required: true },
   image: String,
-  category: { enum: ["Architecture", "Construction", "Permits"] },
+  category: { enum: ["Architecture", "New Development", "Construction", "Permits", "Land Acquisition", "Loans & Financing"] },
   owner: { type: Schema.Types.ObjectId, ref: 'Profile'},
   comments: [commentSchema],
 }, {
