@@ -18,6 +18,7 @@ router.post("/:id/comments", isLoggedIn, postsCtrl.createComment)
 router.put('/:id', isLoggedIn, postsCtrl.update)
 
 router.delete('/:id', isLoggedIn, postsCtrl.delete)
+router.delete('/:postId/comments/:commentId', isLoggedIn, postsCtrl.deleteComment)
 
 
 export {

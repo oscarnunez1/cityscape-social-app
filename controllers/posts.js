@@ -105,6 +105,7 @@ function deletePost(req, res) {
 function createComment(req, res) {
   Post.findById(req.params.id)
   .then(post => {
+    req.body.commenter = req.user.profile._id
     post.comments.push(req.body)
     post.save()
     .then(() => {
@@ -112,12 +113,12 @@ function createComment(req, res) {
     })
     .catch(err => {
       console.log(err)
-      res.redirect("/")
+      res.redirect("/posts")
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/")
+    res.redirect("/posts")
   })
 }
 
