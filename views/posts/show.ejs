@@ -5,19 +5,14 @@
 <main>
   <h1><%= title %> </h1>
   <section>
-    <div>
-      <h1><%= post.title %></h1>
-      <% if (user.profile.equals(user?.profile._id)) { %>
-        <a href="/posts/<%= post._id %>/edit">
-          <button class="btn">Edit Post</button>
-        </a>
-      <% } %>
+    <% if (post.owner.equals(user?.profile._id)) { %>
+      <a href="/posts/<%= post._id %>/edit">
+        <button class="btn">Edit Post</button>
+      </a>
       <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
         <button class="btn" type="submit">Delete Post</button>
       </form>
-    <div>
-      
-    </div>
+    <% } %>
     <div>
       <img src="<%= post.image %>" width="1450">
     </div>
@@ -41,13 +36,13 @@
             <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
               <button>Delete</button>
             </form>
-            <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn">Update</a>
+            <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn">Edit Comment</a>
           <% } %> 
         </p> 
       <% }) %>
     </div>
-  <% } %>
-  
+  <% } %>  
 </main>
+
 
 <%- include('../partials/footer') %>
