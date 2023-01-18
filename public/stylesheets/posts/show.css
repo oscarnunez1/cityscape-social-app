@@ -2,3 +2,8 @@ body {
   background-color: white;
   color: black;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+}
