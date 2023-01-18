@@ -2,8 +2,8 @@ import { Post } from "../models/post.js"
 
 function index(req, res) {
   Post.find({})
-  .populate("owner")
   .sort({_id: -1})
+  .populate("owner")
   .then(posts => {
     res.render('posts/index', {
       posts: posts,
@@ -184,7 +184,7 @@ function updateComment(req, res) {
       throw new Error('Unauthorized')
     }
   })
-  .catch(err => {
+routes/auth.js  .catch(err => {
     console.log(err)
     res.redirect('/posts')
   })
