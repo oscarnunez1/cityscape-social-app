@@ -184,7 +184,7 @@ function updateComment(req, res) {
       throw new Error('Unauthorized')
     }
   })
-routes/auth.js  .catch(err => {
+    .catch(err => {
     console.log(err)
     res.redirect('/posts')
   })
