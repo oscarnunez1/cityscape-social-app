@@ -3,21 +3,18 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <body>
+  <section>
     <% posts.forEach(post => { %>
-      <div>
-        <article>
-          <h1> 
-            <a href="/posts/<%= post._id %>"><%= post.title %></a>
-          </h1>
-          <h3>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %></h3>
-          <img src="<%= post.image %>" width="1450">
-        </article>
+      <div class="card text-center mb-3" style="width: 100rem;">
+        <div class="card-body">
+          <a href="/posts/<%= post._id %>" class="btn btn-outline-danger text-right">Open Post</a>
+          <h1 class="card-title"><%= post.title %></h1>
+          <h2>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %></h2>
+          <img src="<%= post.image %>" width="1500">
+        </div>
       </div>
-      <% }) %>
-  </body>
+    <% }) %>
+  </section>
 </main>
-
 
 <%- include('../partials/footer') %>

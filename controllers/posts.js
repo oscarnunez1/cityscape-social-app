@@ -7,7 +7,7 @@ function index(req, res) {
   .then(posts => {
     res.render('posts/index', {
       posts: posts,
-      title: 'Home'
+      title: 'Feed'
     })
   })
   .catch(err => {

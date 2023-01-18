@@ -1,15 +1,5 @@
-html {
-  box-sizing: border-box;
-}
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
 
 body {
-  background-color: #f6f6f6;
-  color: black;
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
   margin: 0;
@@ -22,20 +12,16 @@ button {
 }
 
 main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  background-image: url(https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80);
 }
 
-.right {
-  margin-left: auto;
+.google-logout {
+  background-color: #6c757d;
+  color: white;
+  border-radius: 8px;
 }
 
-h1 {
+main {
   text-align: center;
-}
-
-.google-button {
-  
+  color: black;
 }
