@@ -3,6 +3,7 @@ import { Post } from "../models/post.js"
 function index(req, res) {
   Post.find({})
   .populate("owner")
+  .sort({_id: -1})
   .then(posts => {
     res.render('posts/index', {
       posts: posts,
