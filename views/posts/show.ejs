@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="/stylesheets/posts/show.css">
 <%- include('../partials/nav') %>
 
-<main>
   <h1><%= post.title %> </h1>
   <section>
     <% if (post.owner.equals(user?.profile._id)) { %>
@@ -22,106 +21,54 @@
   </section>
 
   <h2>Comments</h2>
-  <div class="comment-container">
-    <% if (user) { %>
-      <h3>Add a comment</h3>
-      <form action="/posts/<%= post._id %>/comments" method="POST">
-        <textarea name="content" rows="5" cols="60"></textarea><br>
-        <button>Add Comment</button>
-      </form>
-      <div>
-        <% post.comments?.forEach(comment => { %>
-          <p>
-            <%= comment.content %> - <%= comment.commenter.name %>
-            <% if (user?.profile.avatar) { %>
-              <div>
-                <img
-                  src="<%= user.profile.avatar %>"
-                  alt="<%= user.profile.name %> avatar"
-                />
-              </div>
-            <% } %>
-            <% if (comment.commenter._id.equals(user?.profile._id)) { %>
-              <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                <button>Delete</button>
-              </form>
-              <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn">Edit Comment</a>
-            <% } %> 
-          </p> 
-        <% }) %>
-      </div>
-    <% } %>
-  </div>  
-</main>
-
-<div class="row d-flex justify-content-center">
-  <div class="col-md-8 col-lg-6">
-    <div class="card shadow-0 border" style="background-color: #f0f2f5;">
-      <div class="card-body p-4">
-        <div class="form-outline mb-4">
-          <label class="form-label" for="addANote">+ Add a note</label>
-          <input type="text" id="addANote" class="form-control" placeholder="Type comment..." />
-        </div>
-
-        <div class="card mb-4">
-          <div class="card-body">
-            <p>Type your note, and hit enter to add it</p>
-
-            <div class="d-flex justify-content-between">
-              <div class="d-flex flex-row align-items-center">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="25"
-                  height="25" />
-                <p class="small mb-0 ms-2">Martha</p>
-              </div>
+  <% if (user) { %>
+    <h3>Add a comment</h3>
+    <form action="/posts/<%= post._id %>/comments" method="POST">
+      <textarea name="content" rows="5" cols="60"></textarea><br>
+      <button>Add Comment</button>
+    </form>
+    <div>
+      <% post.comments?.forEach(comment => { %>
+        <p>
+          <%= comment.content %> - <%= comment.commenter.name %>
+          <% if (user?.profile.avatar) { %>
+            <div>
+              <img
+                src="<%= user.profile.avatar %>"
+                alt="<%= user.profile.name %> avatar"
+              />
             </div>
-          </div>
-        </div>
-
-        <div class="card mb-4">
-          <div class="card-body">
-            <p>Type your note, and hit enter to add it</p>
-
-            <div class="d-flex justify-content-between">
-              <div class="d-flex flex-row align-items-center">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="25"
-                  height="25" />
-                <p class="small mb-0 ms-2">Johny</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-4">
-          <div class="card-body">
-            <p>Type your note, and hit enter to add it</p>
-
-            <div class="d-flex justify-content-between">
-              <div class="d-flex flex-row align-items-center">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="25"
-                  height="25" />
-                <p class="small mb-0 ms-2">Mary Kate</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <p>Type your note, and hit enter to add it</p>
-
-            <div class="d-flex justify-content-between">
-              <div class="d-flex flex-row align-items-center">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="25"
-                  height="25" />
-                <p class="small mb-0 ms-2">Johny</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <% } %>
+        
+          <% if (comment.commenter._id.equals(user?.profile._id)) { %>
+            <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+              <button>Delete</button>
+            </form>
+            <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn">Edit Comment</a>
+          <% } %> 
+        </p> 
+      <% }) %>
     </div>
+  <% } %>  
+
+<div class="card" style="width: 75rem;">
+  <h2><%= post.title %> </h2>
+    <img src="<%= post.image %>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h4>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {timeStyle: 'short'}) %> </h4>
+    <p class="card-text"><%= post.textarea %></p>
+    <% if (post.owner.equals(user?.profile._id)) { %>
+      <a href="/posts/<%= post._id %>/edit">
+        <button type="button" class="btn btn-outline-danger btn-lg">Edit Post</button>
+      </a>
+      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-outline-danger btn-lg">Delete Post</button>
+      </form>
+    <% } %>
   </div>
 </div>
 
+<button type="button" class="btn btn-primary btn-lg">Edit Post</button>
+<button type="submit" class="btn btn-secondary btn-lg">Delete Post</button>
 
 <%- include('../partials/footer') %>

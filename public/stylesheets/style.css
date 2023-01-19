@@ -5,10 +5,6 @@ body {
   text-align: center;
 }
 
-html {
-  background-image: url('/../images/red-painted-wall.jpg');
-}
-
 button {
   padding: 8px;
   margin: 5px;
