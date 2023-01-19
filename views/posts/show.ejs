@@ -3,7 +3,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %> </h1>
+  <h1><%= post.title %> </h1>
   <section>
     <% if (post.owner.equals(user?.profile._id)) { %>
       <a href="/posts/<%= post._id %>/edit">

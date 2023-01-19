@@ -1,7 +1,6 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-<main>
   <h1 class="welome-message">Hey <%= user ? user.profile.name : "There" %>!</h1>
   <% if (user?.profile.avatar) { %>
     <div>
@@ -10,7 +9,7 @@
         alt="<%= user.profile.name %> avatar"
       />
     </div>
+    else 
   <% } %>
-</main>
 
 <%- include('./partials/footer') %>

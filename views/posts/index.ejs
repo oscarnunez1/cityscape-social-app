@@ -2,19 +2,18 @@
 <link rel="stylesheet" href="/stylesheets/posts/index.css">
 <%- include('../partials/nav') %>
 
-<main>
-  <section>
-    <% posts.forEach(post => { %>
-      <div class="card text-center mb-3" style="width: 100rem;">
-        <div class="card-body">
-          <a href="/posts/<%= post._id %>" class="btn btn-outline-danger text-right">Open Post</a>
-          <h1 class="card-title"><%= post.title %></h1>
-          <h2>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %></h2>
-          <img src="<%= post.image %>" width="1500">
-        </div>
+
+<section>
+  <% posts.forEach(post => { %>
+    <div class="card text-center mb-3" style="width: 100rem;">
+      <div class="card-body">
+        <a href="/posts/<%= post._id %>" class="btn btn-outline-danger text-right">Open Post</a>
+        <h1 class="card-title"><%= post.title %></h1>
+        <h2>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %></h2>
+        <img src="<%= post.image %>" width="1500">
       </div>
-    <% }) %>
-  </section>
-</main>
+    </div>
+  <% }) %>
+</section>
 
 <%- include('../partials/footer') %>

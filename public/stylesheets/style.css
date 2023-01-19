@@ -2,7 +2,6 @@
 body {
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
-  margin: 0;
 }
 
 button {
@@ -11,17 +10,24 @@ button {
   border-radius: 8px;
 }
 
-main {
-  background-image: url(https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80);
-}
 
 .google-logout {
-  background-color: #6c757d;
+  background-color: #e04955;
   color: white;
   border-radius: 8px;
 }
 
-main {
+.app-name-container {
+  display: inline-block;
   text-align: center;
-  color: black;
+  color: white;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
 }
