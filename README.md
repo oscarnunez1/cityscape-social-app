@@ -22,7 +22,7 @@ Welcome to *Cityscape Social*, your source for the latest and greatest in archit
 * OAuth provided by [Google Cloud](hthttps://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwi79__BqdT8AhUF5IYKHaCsDmMYABAAGgJ2dQ&ohost=www.google.com&cid=CAESa-D2_m5mCYCq-H0YawD1_6Jsxn4rzGCXxD-NiWToVBPhKAJ0Ll18gvKF9XISvSdAvBJoJpqk8893LUBtLnCe6XsyDROYYGRoNRBJcQCLjwue5VTGIBaxhePkHaSnyxAdZh_BokXl9g3Hb1tR&sig=AOD64_0NUw70T_OCL5oYqC-Fvj2UbePMbg&q&adurl&ved=2ahUKEwj09vTBqdT8AhXWRjABHep1ABMQ0Qx6BAgGEAE)
 
 ---
-## Latest Modifications - Upgrades ⏩
+## Latest Modifications  ⏩
 * Add a cleaner navbar.
 * Styled buttons.
 * Option to comment on posts.
