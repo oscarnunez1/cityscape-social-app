@@ -7,7 +7,7 @@
   <% posts.forEach(post => { %>
     <div class="card text-center mb-3" style="width: 100rem;">
       <div class="card-body">
-        <a href="/posts/<%= post._id %>" class="btn btn-outline-danger text-right">Open Post</a>
+        <a href="/posts/<%= post._id %>" class="btn btn-outline-danger text-right btn-lg">Open Post</a>
         <h1 class="card-title"><%= post.title %></h1>
         <h2>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %></h2>
         <img src="<%= post.image %>" width="1500">
