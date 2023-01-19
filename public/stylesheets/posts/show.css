@@ -15,3 +15,6 @@
 .card-body > form {
   display: inline-block;
 }
+.card-body a {
+  text-decoration: none;
+}
