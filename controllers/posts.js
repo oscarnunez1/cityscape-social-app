@@ -107,7 +107,6 @@ function deletePost(req, res) {
 }
 
 function addComment(req, res) {
-  console.log("ADDING A COMMENT", req.body);
   Post.findById(req.params.id)
   .then(post => {
     req.body.commenter = req.user.profile._id
@@ -128,7 +127,6 @@ function addComment(req, res) {
 }
 
 function deleteComment(req, res) {
-  console.log("DELETING COMMENT", post.owner.equals(req.user.profile._id));
   Post.findById(req.params.postId)
   .then(post => {
     if (post.owner.equals(req.user.profile._id)) {
@@ -152,7 +150,6 @@ function deleteComment(req, res) {
 }
 
 function editComment(req, res) {
-  console.log("EDITING COMMENT", req.body);
   Post.findById(req.params.postId)
   .then(post => {
     if (post.owner.equals(req.user.profile._id)) {
@@ -169,7 +166,6 @@ function editComment(req, res) {
 }
 
 function updateComment(req, res) {
-  console.log("LETS UPDATE THIS COMMENT", req.body);
   Post.findById(req.params.postId)
   .then(post => {
     if (post.owner.equals(req.user.profile._id)) {
