@@ -3,42 +3,42 @@
   <% } %>
 </head>
 
-<body>
-
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand"><h1>Cityscape <span style="color:#e04955">Social</span></h1></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/posts/index.ejs">Home</a>
-          <a class="nav-link" href="/posts/new">New Post</a>
-        </div>
-      </div>
-      <div class="google-button">
-        <% if (user) { %>
-          <a href="/auth/logout" class="right">
-            <button type="submit" class="google-logout" >Logout</button>
-          </a>
-        <% } else { %>
-          <div 
-            id="g_id_onload"
-            data-client_id="<%= googleClientID %>"
-            data-login_uri="/auth/google"
-            data-auto_prompt="false"
-          ></div>
-          <div 
-            class="g_id_signin right"
-            data-type="standard"
-            data-size="large"
-            data-theme="outline"
-            data-text="sign_in_with"
-            data-shape="rectangular"
-            data-logo_alignment="left"
-          ></div>
-        <% } %>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand"><h1>Cityscape <span style="color:#e04955">Social</span></h1></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/posts/index.ejs">Home</a>
+        <a class="nav-link" href="/posts/new">New Post</a>
       </div>
     </div>
-  </nav>
+    <div class="google-button">
+      <% if (user) { %>
+        <a href="/auth/logout" class="right">
+          <button type="submit" class="google-logout" >Logout</button>
+        </a>
+      <% } else { %>
+        <div 
+          id="g_id_onload"
+          data-client_id="<%= googleClientID %>"
+          data-login_uri="/auth/google"
+          data-auto_prompt="false"
+        ></div>
+        <div 
+          class="g_id_signin right"
+          data-type="standard"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="rectangular"
+          data-logo_alignment="left"
+        ></div>
+      <% } %>
+    </div>
+  </div>
+</nav>
+
+<body>

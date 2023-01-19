@@ -6,7 +6,7 @@
     <div class="card text-center mb-3" style="width: 100rem">
       <div class="card-body">
         <h1 class="card-title"><%= post.title %></h1>
-        <h2>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %></h2>
+        <h2>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {timeStyle: 'short'}) %> </h2>
         <img src="<%= post.image %>" width="1300" class="source-image">
       </div>
       <div class="d-grid gap-2 col-6 mx-auto">

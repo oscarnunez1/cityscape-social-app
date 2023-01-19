@@ -1,10 +1,7 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-
-
-  <img src="https://images.unsplash.com/photo-1568561300108-e0c35b5f7c1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1788&q=80" class="user-background-img">
-
+<div class="container" style="height: 100%">
   <h1 class="welome-message">Hey <%= user ? user.profile.name : "There" %>!</h1>
   <% if (user?.profile.avatar) { %>
     <div>
@@ -14,5 +11,7 @@
       />
     </div>
   <% } %>
-  
+</div>
+
+
 <%- include('./partials/footer') %>

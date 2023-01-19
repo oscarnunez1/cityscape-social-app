@@ -5,6 +5,10 @@ body {
   text-align: center;
 }
 
+html {
+  background-image: url('/../images/red-painted-wall.jpg');
+}
+
 button {
   padding: 8px;
   margin: 5px;
@@ -34,7 +38,6 @@ nav {
   background-color: #eff2f5;
 }
 
-.user-background-img {
-  background-size: auto;
+div.container {
+  display: flex;
 }
-
