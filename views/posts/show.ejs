@@ -2,55 +2,6 @@
 <link rel="stylesheet" href="/stylesheets/posts/show.css">
 <%- include('../partials/nav') %>
 
-  <h1><%= post.title %> </h1>
-  <section>
-    <% if (post.owner.equals(user?.profile._id)) { %>
-      <a href="/posts/<%= post._id %>/edit">
-        <button class="btn">Edit Post</button>
-      </a>
-      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-        <button class="btn" type="submit">Delete Post</button>
-      </form>
-    <% } %>
-    <div>
-      <img src="<%= post.image %>" width="1450">
-    </div>
-    <div>
-      <p><%= post.textarea %></p>
-    </div>
-  </section>
-
-  <h2>Comments</h2>
-  <% if (user) { %>
-    <h3>Add a comment</h3>
-    <form action="/posts/<%= post._id %>/comments" method="POST">
-      <textarea name="content" rows="5" cols="60"></textarea><br>
-      <button>Add Comment</button>
-    </form>
-    <div>
-      <% post.comments?.forEach(comment => { %>
-        <p>
-          <%= comment.content %> - <%= comment.commenter.name %>
-          <% if (user?.profile.avatar) { %>
-            <div>
-              <img
-                src="<%= user.profile.avatar %>"
-                alt="<%= user.profile.name %> avatar"
-              />
-            </div>
-          <% } %>
-        
-          <% if (comment.commenter._id.equals(user?.profile._id)) { %>
-            <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-              <button>Delete</button>
-            </form>
-            <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn">Edit Comment</a>
-          <% } %> 
-        </p> 
-      <% }) %>
-    </div>
-  <% } %>  
-
 <div class="card" style="width: 75rem;">
   <h2><%= post.title %> </h2>
     <img src="<%= post.image %>" class="card-img-top" alt="...">
@@ -68,7 +19,34 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-primary btn-lg">Edit Post</button>
-<button type="submit" class="btn btn-secondary btn-lg">Delete Post</button>
+<h2>Comments</h2>
+<% if (user) { %>
+  <h3>Add a comment</h3>
+  <form action="/posts/<%= post._id %>/comments" method="POST">
+    <textarea name="content" rows="5" cols="60"></textarea><br>
+    <button>Add Comment</button>
+  </form>
+  <div>
+    <% post.comments?.forEach(comment => { %>
+      <p>
+        <%= comment.content %> - <%= comment.commenter.name %>
+        <% if (user?.profile.avatar) { %>
+          <div>
+            <img
+              src="<%= user.profile.avatar %>"
+              alt="<%= user.profile.name %> avatar"
+            />
+          </div>
+        <% } %>
+        <% if (comment.commenter._id.equals(user?.profile._id)) { %>
+          <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+          </form>
+          <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn">Edit Comment</a>
+        <% } %> 
+      </p> 
+    <% }) %>
+  </div>
+<% } %>  
 
 <%- include('../partials/footer') %>

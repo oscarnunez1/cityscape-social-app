@@ -1,4 +1,6 @@
 .card {
+  display: flex;
+  justify-content: space-around;
   text-align: center;
   margin: auto;
   margin-top: 64px;
@@ -8,4 +10,8 @@
   border-radius: 16px;
   box-shadow: 0 0 16px #e04955;
   background-color: #eff2f5;
+}
+
+.card-body > form {
+  display: inline-block;
 }
