@@ -18,3 +18,11 @@
 .card-body a {
   text-decoration: none;
 }
+img {
+  margin-bottom: 16px;
+  border: 2px groove black;
+}
+
+h2 {
+  margin: 16px;
+}

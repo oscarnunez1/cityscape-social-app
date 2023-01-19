@@ -1,6 +1,6 @@
 # Cityscape Social
 
-![alt text](/public/images/cityscape-social-screenshot.png)
+![alt text](/public/images/cityscape-social-show-view.png)
 
 Welcome to *Cityscape Social*, your source for the latest and greatest in architecture, construction, and real estate development news. This social blog is a platform where users can share stunning pictures, news, and updates from the world of architecture and construction.
 

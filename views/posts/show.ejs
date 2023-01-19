@@ -4,7 +4,7 @@
 
 <div class="card" style="width: 75rem;">
   <h2><%= post.title %> </h2>
-    <img src="<%= post.image %>" class="card-img-top" alt="...">
+    <img src="<%= post.image %>" class="card-img-top" class="source-image">
   <div class="card-body">
     <h4>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {timeStyle: 'short'}) %> </h4>
     <p class="card-text"><%= post.textarea %></p>
