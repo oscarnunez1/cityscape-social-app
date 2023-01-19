@@ -2,12 +2,10 @@
 
 ![alt text](/images/bitconnect-4-README-md.png)
 
-*Cityscape Social* is a bitcoin-themed remake of the original Connect Four two-player game launched in 1974. The game involves two players placing yellow or red bitcoin tokens down 7 columns comprised of 6 slots each. With a board total of 42 slots, players need to play strategically to connect 4 tokens either vertically, horizontally, or diagonally. The first one to Connect 4 wins the game!
-
-The audio integrated into the game provides a realistic and dynamic sense of gameplay, and the restart button is there to play as many times as you'd like. The winner gets a nice little surprise at the end!
+Welcome to *Cityscape Social*, your source for the latest and greatest in architecture, construction, and real estate development news. This social blog is a platform where users can share stunning pictures, news, and updates from the world of architecture and construction.
 
 ## [Test the Cityscape Social app here!](https://cityscape-social.fly.dev/) 
-### [Planning Materials via Trello](https://trello.com/b/5arPtQK3/cityscape-social-app)
+### [Check out my Trello to see how I got started](https://trello.com/b/5arPtQK3/cityscape-social-app)
 ---
 
 ## Technologies Used 🖥️
@@ -22,8 +20,6 @@ The audio integrated into the game provides a realistic and dynamic sense of gam
 * Custom Favicon built through [favicon.io](https://favicon.io/)
 * Images sourced from [Unsplash](https://unsplash.com/)
 * OAuth provided by [Google Cloud](hthttps://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwi79__BqdT8AhUF5IYKHaCsDmMYABAAGgJ2dQ&ohost=www.google.com&cid=CAESa-D2_m5mCYCq-H0YawD1_6Jsxn4rzGCXxD-NiWToVBPhKAJ0Ll18gvKF9XISvSdAvBJoJpqk8893LUBtLnCe6XsyDROYYGRoNRBJcQCLjwue5VTGIBaxhePkHaSnyxAdZh_BokXl9g3Hb1tR&sig=AOD64_0NUw70T_OCL5oYqC-Fvj2UbePMbg&q&adurl&ved=2ahUKEwj09vTBqdT8AhXWRjABHep1ABMQ0Qx6BAgGEAE)
-* 
-
 
 ---
 ## Latest Modifications - Upgrades ⏩
