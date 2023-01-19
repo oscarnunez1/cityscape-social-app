@@ -5,17 +5,17 @@
 <div class="card w-50" id="center-card">
   <h1><%= title %></h1>
   <div class="card-body text-center">
-    <div class="mb-3">
+    <div class="row mb-3">
       <form id="new-form" action="/posts" method="POST">
-        <div class="mb-3">
+        <div class="row mb-3">
           <label for="title-input" class="form-label">Title: </label>
           <input type="text" class="form-control" name="title" id="title-input">
         </div>
-        <div class="mb-3">
+        <div class="row mb-3">
           <label for="image-input" class="form-label">Image URL:</label>
           <input type="text" class="form-control" id="image-input">
         </div>
-        <div class="mb-3">
+        <div class="row mb-3">
           <label for="textarea-input">Description:</label>
           <textarea type="text" name="textarea" class="form-control" id="textarea-input"></textarea>
         </div>
