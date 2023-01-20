@@ -35,23 +35,23 @@
 
   <div class="card" style="width: 75rem;">
     <div class="card-body">
-      <h2>Comments</h2>    
-      <% if (user) { %>
-        <div>
+      <h1>Comments</h1>    
+      <% if (post.comments.length > 0) { %>
+        <div class="comment">
           <% post.comments?.forEach(comment => { %>
-            <p>
+            <h6>
               <%= comment.content %> - <%= comment.commenter.name %>
+            </h6> 
               <% if (comment.commenter._id.equals(user?.profile._id)) { %>
                 <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                   <button type="submit" class="btn btn-outline-danger btn-lg">Delete</button>
                 </form>
                 <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-danger btn-lg" text-decoration="none">Edit Comment</a>
               <% } %> 
-            </p> 
           <% }) %>
         </div>
       <% } else { %>
-        <h3>No Comments Yet</h3>  
+        <h4>No Comments Yet</h4>  
       <% } %>
     </div>
   </div>

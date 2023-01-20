@@ -4,7 +4,7 @@
   text-align: center;
   margin: auto;
   margin-top: 64px;
-  margin-bottom: 10%;
+  margin-bottom: 20px;
   padding: 8px;
   border: 1px solid black;
   border-radius: 16px;
@@ -32,4 +32,11 @@ h2 {
 main {
   display: flex;
   flex-direction: column;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
 }
