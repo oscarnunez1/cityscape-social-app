@@ -1,19 +1,19 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/posts/index.css">
 <%- include('../partials/nav') %>
-<section>
-  <% posts.forEach(post => { %>
-    <div class="card text-center mb-3" style="width: 100rem">
-      <div class="card-body">
-        <h2 class="card-title"><%= post.title %></h2>
-        <h4>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {timeStyle: 'short'}) %> </h4>
-        <img src="<%= post.image %>" width="1300" class="source-image">
-      </div>
-      <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="/posts/<%= post._id %>" class="btn btn-outline-danger btn-lg" type="button">Open Post</a>
-      </div>
+
+<% posts.forEach(post => { %>
+  <div class="card text-center mb-3" style="width: 75rem">
+    <div class="card-body">
+      <h2 class="card-title"><%= post.title %></h2>
+      <h4>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {timeStyle: 'short'}) %> </h4>
+      <img src="<%= post.image %>" class="card-img-top" class="source-image">
     </div>
-  <% }) %>
-</section>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <a href="/posts/<%= post._id %>" class="btn btn-outline-danger btn-lg" type="button">Open Post</a>
+    </div>
+  </div>
+<% }) %>
+
 
 <%- include('../partials/footer') %>

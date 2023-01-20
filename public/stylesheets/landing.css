@@ -1,0 +1,14 @@
+main {
+  background-image: url('../images/red-painted-wall.png.jpg');
+  height: 100vh;
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+}

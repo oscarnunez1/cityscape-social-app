@@ -2,51 +2,60 @@
 <link rel="stylesheet" href="/stylesheets/posts/show.css">
 <%- include('../partials/nav') %>
 
-<div class="card" style="width: 75rem;">
-  <h2><%= post.title %> </h2>
-    <img src="<%= post.image %>" class="card-img-top" class="source-image">
-  <div class="card-body">
-    <h4>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {timeStyle: 'short'}) %> </h4>
-    <p class="card-text"><%= post.textarea %></p>
-    <% if (post.owner.equals(user?.profile._id)) { %>
-      <a href="/posts/<%= post._id %>/edit">
-        <button type="button" class="btn btn-outline-danger btn-lg">Edit Post</button>
-      </a>
-      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-        <button type="submit" class="btn btn-outline-danger btn-lg">Delete Post</button>
-      </form>
-    <% } %>
-  </div>
-</div>
+<main>
 
-<h2>Comments</h2>
-<% if (user) { %>
-  <h3>Add a comment</h3>
-  <form action="/posts/<%= post._id %>/comments" method="POST">
-    <textarea name="content" rows="5" cols="60"></textarea><br>
-    <button>Add Comment</button>
-  </form>
-  <div>
-    <% post.comments?.forEach(comment => { %>
-      <p>
-        <%= comment.content %> - <%= comment.commenter.name %>
-        <% if (user?.profile.avatar) { %>
-          <div>
-            <img
-              src="<%= user.profile.avatar %>"
-              alt="<%= user.profile.name %> avatar"
-            />
-          </div>
-        <% } %>
-        <% if (comment.commenter._id.equals(user?.profile._id)) { %>
-          <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-            <button>Delete</button>
-          </form>
-          <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn" text-decoration="none">Edit Comment</a>
-        <% } %> 
-      </p> 
-    <% }) %>
+  <div class="card text-center mb-3" style="width: 75rem;">
+    <h2><%= post.title %> </h2>
+      <img src="<%= post.image %>" class="card-img-top" class="source-image">
+    <div class="card-body">
+      <h4>Shared by <%= post.owner.name %> on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {timeStyle: 'short'}) %> </h4>
+      <p class="card-text"><%= post.textarea %></p>
+      <% if (post.owner.equals(user?.profile._id)) { %>
+        <a href="/posts/<%= post._id %>/edit">
+          <button type="button" class="btn btn-outline-danger btn-lg">Edit Post</button>
+        </a>
+        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-outline-danger btn-lg">Delete Post</button>
+        </form>
+      <% } %>
+    </div>
   </div>
-<% } %>  
+
+  <div class="card" style="width: 75rem;">
+    <div class="card-body">
+      <% if (user) { %>
+        <h3>Add a comment</h3>
+        <form action="/posts/<%= post._id %>/comments" method="POST">
+          <textarea name="content" rows="5" cols="60"></textarea><br>
+          <button type="submit" class="btn btn-outline-danger btn-lg">Add Comment</button>
+        </form>
+      <% } %>  
+    </div>
+  </div>
+
+  <div class="card" style="width: 75rem;">
+    <div class="card-body">
+      <h2>Comments</h2>    
+      <% if (user) { %>
+        <div>
+          <% post.comments?.forEach(comment => { %>
+            <p>
+              <%= comment.content %> - <%= comment.commenter.name %>
+              <% if (comment.commenter._id.equals(user?.profile._id)) { %>
+                <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-outline-danger btn-lg">Delete</button>
+                </form>
+                <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-danger btn-lg" text-decoration="none">Edit Comment</a>
+              <% } %> 
+            </p> 
+          <% }) %>
+        </div>
+      <% } else { %>
+        <h3>No Comments Yet</h3>  
+      <% } %>
+    </div>
+  </div>
+
+</main>
 
 <%- include('../partials/footer') %>
