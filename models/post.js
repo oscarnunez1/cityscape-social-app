@@ -11,7 +11,6 @@ const commentSchema = new Schema({
 
 const postSchema = new Schema({
   title: { type: String, required: true},
-  date: Date,
   textarea: { type: String, required: true },
   image: String,
   owner: { type: Schema.Types.ObjectId, ref: 'Profile'},

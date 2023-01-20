@@ -34,26 +34,36 @@
   </div>
 
   <div class="card" style="width: 75rem;">
-    <div class="card-body">
-      <h1>Comments</h1>    
-      <% if (post.comments.length > 0) { %>
-        <div class="comment">
+    <h1>Comments</h1>
+    <% if (post.comments.length > 0) { %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Name</th>
+            <th scope="col">Comment</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
           <% post.comments?.forEach(comment => { %>
-            <h6>
-              <%= comment.content %> - <%= comment.commenter.name %>
-            </h6> 
+            <tr>
+              <th scope="row"><%= new Date().toLocaleDateString() %> </th>
+              <td><%= post.owner.name %> </td>
+              <td><%= comment.content %> </td>
               <% if (comment.commenter._id.equals(user?.profile._id)) { %>
+              <td>
                 <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                  <button type="submit" class="btn btn-outline-danger btn-lg">Delete</button>
+                  <button type="submit" class="btn btn-outline-danger btn-lg">Delete Comment</button>
+                  <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-danger btn-lg" text-decoration="none">Edit Comment</a>
                 </form>
-                <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-danger btn-lg" text-decoration="none">Edit Comment</a>
+              </td>
               <% } %> 
-          <% }) %>
-        </div>
-      <% } else { %>
-        <h4>No Comments Yet</h4>  
-      <% } %>
-    </div>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+    <% } %>
   </div>
 
 </main>

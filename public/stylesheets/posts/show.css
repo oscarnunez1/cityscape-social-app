@@ -1,6 +1,7 @@
 .card {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   margin: auto;
   margin-top: 64px;
@@ -16,6 +17,7 @@
   display: inline-block;
   text-align: justify;
   align-items: center;
+
 }
 .card-body a {
   text-decoration: none;
@@ -29,6 +31,10 @@ h2 {
   margin: 16px;
 }
 
+h4 {
+  margin: 8px;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -39,4 +45,9 @@ main {
   flex-direction: row;
   text-align: center;
   justify-content: center;
+}
+
+button {
+  margin: auto;
+  justify-content: space-evenly;
 }
