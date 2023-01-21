@@ -3,22 +3,20 @@
 <%- include('../partials/nav') %>
 
 <main>
-
-<div class="card text-center mb-3" style="width: 75rem">
-  <div class="card-body">
-    <h1>Edit Post</h1>
-    <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
-      <label for="title-input">Title: </label>
-      <input type="text" name="title" value="<%= post.title %> " id="title-input">
-      <label for="image-input">Image URL: </label>
-      <input type="text" name="image" value="<%= post.image %> " id="image-input">
-      <label for="textarea-input">Description: </label>
-      <input type="text" name="textarea" value="<%= post.textarea %>" id="textarea-input"></input>
-      <button type="submit" class="btn btn-outline-danger bt-lg">Finish Edit</button>
-    </form>
+  <div class="card text-center mb-3" style="width: 75rem">
+    <div class="card-body">
+      <h1>Edit Post</h1>
+      <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+        <label for="title-input">Title: </label>
+        <input type="text" name="title" value="<%= post.title %> " id="title-input">
+        <label for="image-input">Image URL: </label>
+        <input type="text" name="image" value="<%= post.image %> " id="image-input">
+        <label for="textarea-input">Description: </label>
+        <input type="text" name="textarea" value="<%= post.textarea %>" id="textarea-input"></input>
+        <button type="submit" class="btn btn-outline-danger bt-lg">Finish Edit</button>
+      </form>
+    </div>
   </div>
-</div>
-
 </main>
 
 <%- include('../partials/footer') %>
