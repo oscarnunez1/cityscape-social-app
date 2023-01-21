@@ -48,7 +48,7 @@
           <tr>
             <% post.comments?.forEach(comment => { %>
             <th scope="row"><%= new Date().toLocaleDateString() %> </th>
-            <td><%= post.owner.name %> </td>
+            <td><%= comment.commenter.name %> </td>
             <td><%= comment.content %> </td>
               <% if (comment.commenter._id.equals(user?.profile._id)) { %>
               <td>

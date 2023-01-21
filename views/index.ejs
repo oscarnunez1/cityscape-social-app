@@ -3,12 +3,14 @@
 <%- include('./partials/nav') %>
 
 <main>
-
-<% if (user) { %>
-  <div class="container" style="height: 18rem;">
-    <h1>Welcome To Cityscape Social,</h1>
-    <h3><span style="color: grey;">a social blog for all things architecture and construction.</span></h3>
-    <h4>Sign in via <img src="https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white"> above.</h4>
+  <div class="container" style="height: 12rem;">
+    <% if (user) { %>
+      <h3><span style="color: grey;">Up by the Navbar, click <span style="color: #e04955;">Home</span> for the latest feed, or <span style="color: #e04955;">New Post</span> to submit a new post.</span></h3>
+    <% } else { %>
+      <h1>Welcome To Cityscape Social,</h1>
+      <h3><span style="color: grey;">a social blog for all things architecture and construction.</span></h3>
+      <h4>Sign in via <img src="https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white"> above.</h4>
+    <% } %>
   </div>
 
 </main>
