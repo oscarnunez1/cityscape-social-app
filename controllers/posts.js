@@ -130,8 +130,9 @@ function deleteComment(req, res) {
   console.log("DELETED THE COMMENT", req.body);
   Post.findById(req.params.postId)
   .then(post => {
-    if (post.owner.equals(req.user.profile._id)) {
-      post.comments.remove({_id: req.params.commentId})
+    const comment = post.comments.id(req.params.commentId)
+    if (comment.commenter.equals(req.user.profile._id)) {
+      post.comments.remove(comment)
       post.save()
       .then(() => {
         res.redirect(`/posts/${post._id}`)

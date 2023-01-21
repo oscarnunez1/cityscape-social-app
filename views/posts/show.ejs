@@ -47,7 +47,7 @@
         <tbody>
           <tr>
             <% post.comments?.forEach(comment => { %>
-              <td scope="row"><%= new Date().toLocaleDateString() %></td>
+              <td scope="row"><%= new Date() %></td>
               <td><%= comment.commenter.name %> </td>
               <td><%= comment.content %> </td>
               <td>
