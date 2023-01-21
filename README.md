@@ -24,8 +24,9 @@ Welcome to *Cityscape Social*, your source for the latest and greatest in archit
 ---
 ## Latest Modifications  ⏩
 * Add a cleaner navbar.
+* Landing page accesible through Cityscape Social logo.
 * Styled buttons.
-* Option to comment on posts.
+* Option to add, edit, and delete comments on posts.
 * Box shadows to emphasize content on post feed.
 
 ---

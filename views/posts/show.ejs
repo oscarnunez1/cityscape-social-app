@@ -41,13 +41,13 @@
             <th scope="col">Date</th>
             <th scope="col">Name</th>
             <th scope="col">Comment</th>
-            <th scope="col"></th>
+  
           </tr>
         </thead>~
         <tbody>
           <tr>
             <% post.comments?.forEach(comment => { %>
-              <td scope="row"><%= new Date() %></td>
+              <td scope="row"><%= new Date().toLocaleDateString(); %></td>
               <td><%= comment.commenter.name %> </td>
               <td><%= comment.content %> </td>
               <td>
