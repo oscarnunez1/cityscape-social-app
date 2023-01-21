@@ -127,6 +127,7 @@ function addComment(req, res) {
 }
 
 function deleteComment(req, res) {
+  console.log("DELETED THE COMMENT", req.body);
   Post.findById(req.params.postId)
   .then(post => {
     if (post.owner.equals(req.user.profile._id)) {
@@ -150,13 +151,14 @@ function deleteComment(req, res) {
 }
 
 function editComment(req, res) {
+  console.log("EDITING THE COMMENT", req.body);
   Post.findById(req.params.postId)
   .then(post => {
-    if (post.owner.equals(req.user.profile._id)) {
-      const commentDoc = post.comments.id(req.params.commentId)
+    const comment = post.comments.id(req.params.commentId)
+    if (comment.commenter.equals(req.user.profile._id)) {
       res.render('posts/editComment', {
         post, 
-        comment: commentDoc,
+        comment,
         title: 'Update Comment'
       })
     } else {

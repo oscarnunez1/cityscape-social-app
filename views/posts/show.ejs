@@ -43,21 +43,21 @@
             <th scope="col">Comment</th>
             <th scope="col"></th>
           </tr>
-        </thead>
+        </thead>~
         <tbody>
           <tr>
             <% post.comments?.forEach(comment => { %>
-            <th scope="row"><%= new Date().toLocaleDateString() %> </th>
-            <td><%= comment.commenter.name %> </td>
-            <td><%= comment.content %> </td>
-              <% if (comment.commenter._id.equals(user?.profile._id)) { %>
+              <td scope="row"><%= new Date().toLocaleDateString() %></td>
+              <td><%= comment.commenter.name %> </td>
+              <td><%= comment.content %> </td>
               <td>
-                <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                  <button type="submit" class="btn btn-outline-danger btn-lg">Delete Comment</button>
-                </form>
-                <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-danger btn-lg" text-decoration="none">Edit Comment</a>
+                <% if (comment.commenter._id.equals(user?.profile._id)) { %>
+                  <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-outline-danger btn-lg">Delete Comment</button>
+                  </form>
+                  <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-danger btn-lg" text-decoration="none">Edit Comment</a>
+                <% } %> 
               </td>
-              <% } %> 
             </tr>
           <% }) %>
         </tbody>
