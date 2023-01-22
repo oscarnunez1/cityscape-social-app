@@ -12,7 +12,6 @@ button {
   border-radius: 8px;
 }
 
-
 .google-logout {
   background-color: #e04955;
   color: white;
@@ -33,6 +32,7 @@ nav {
   justify-content: space-evenly;
   border-bottom: 1px solid;
   background-color: #eff2f5;
+  width: 100vw;
 }
 
 div.container {

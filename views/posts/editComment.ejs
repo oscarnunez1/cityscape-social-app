@@ -10,7 +10,7 @@
         <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
           <div class="row mb-3">
             <label for="edit-comment-input" class="form-label">Edit Comment:<br>
-              <textarea type="text" class="form-control" name="content" id="edit-comment-input" rows="5"></textarea>
+              <textarea type="text" class="form-control" name="content" id="edit-comment-input" rows="4" cols="30"><%= comment.content %></textarea>
             </label>
           </div>
           <button type="submit" class="btn btn-outline-danger btn-lg">Submit</button>
