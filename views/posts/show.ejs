@@ -41,24 +41,23 @@
             <th scope="col">Date</th>
             <th scope="col">Name</th>
             <th scope="col">Comment</th>
-  
           </tr>
         </thead>~
         <tbody>
           <tr>
-            <% post.comments?.forEach(comment => { %>
-              <td scope="row"><%= new Date().toLocaleDateString(); %></td>
-              <td><%= comment.commenter.name %> </td>
-              <td><%= comment.content %> </td>
-              <td>
-                <% if (comment.commenter._id.equals(user?.profile._id)) { %>
-                  <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-outline-danger btn-lg">Delete Comment</button>
-                  </form>
-                  <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-danger btn-lg" text-decoration="none">Edit Comment</a>
-                <% } %> 
-              </td>
-            </tr>
+          <% post.comments?.forEach(comment => { %>
+            <td scope="row"><%= new Date().toLocaleDateString(); %></td>
+            <td><%= comment.commenter.name %> </td>
+            <td><%= comment.content %> </td>
+            <td class="delete-edit-container">
+              <% if (comment.commenter._id.equals(user?.profile._id)) { %>
+                <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-outline-danger btn-lg">Delete Comment</button>
+                </form>
+                <a href="/posts/<%= post._id %>/comments/<%= comment._id %>/edit" class="btn btn-outline-danger btn-lg" text-decoration="none">Edit Comment</a>
+              <% } %> 
+            </td>
+          </tr>
           <% }) %>
         </tbody>
       </table>
