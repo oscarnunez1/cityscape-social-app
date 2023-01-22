@@ -171,9 +171,9 @@ function editComment(req, res) {
 function updateComment(req, res) {
   Post.findById(req.params.postId)
   .then(post => {
-    if (post.owner.equals(req.user.profile._id)) {
-      const commentDoc = post.comments.id(req.params.commentId)
-      commentDoc.set(req.body)
+    const comment = post.comments.id(req.params.commentId)
+    if (comment.commenter.equals(req.user.profile._id)) {
+      comment.set(req.body)
       post.save()
       .then(() => {
         res.redirect(`/posts/${post._id}`)
